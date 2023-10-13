@@ -180,7 +180,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Model. -->
+    <!-- Abstract -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -216,9 +216,9 @@
         </div>
       </div>
     </div>
-    <!--/ Model. -->
+    <!--/ Abstract -->
 
-    <!-- Abstract. -->
+    <!-- Motivations -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Motivations</h2>
@@ -233,11 +233,35 @@
                 in one single pass of a feedforward network, taking about
                 <b>25ms</b>.          
           </p>
-          <img class="thumbnail" src="./static/images/teaser.jpg" style="width:100%; margin-bottom:20px">
+          <img class="thumbnail" src="./static/images/teaser.jpg" style="width:70%; margin-bottom:20px">
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+    <!--/ Motivations -->
+
+
+    <!-- Method -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+                  Overview of the proposed <i>Instant3D</i>, which applies a conditional decoder network to map a text prompt to a
+                  corresponding triplane. Three condition mechanisms, i.e., cross-attention, style injection, and token-to-plane transformation,
+                  are seamlessly combined to bridge text and 3D, tackling the issue of weak supervision from SDS. Given a random
+                  camera pose, a 2D image is rendered from the conditioned triplane through coordinate-based feature sampling, point density
+                  and albedo prediction, and differentiable volume rendering. For albedo activation, we propose a scaled-sigmoid function,
+                  effectively accelerating the training convergence. During training, the view image is first diffused by adding random noise
+                  and then fed into a pretrained UNet conditioned on the text prompt for denoising, which provides the gradient of the SDS
+                  loss. We also present an adaptive Perp-Neg algorithm to better solve the Janus problem in our framework. During inference,
+                  our Instant3D can infer a faithful 3D object from an unseen text prompt in less than one second.          
+          </p>
+          <img class="thumbnail" src="./static/images/overview.jpg" style="width:70%; margin-bottom:20px">
+        </div>
+      </div>
+    </div>
+    <!--/ Method -->
+    
 
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
