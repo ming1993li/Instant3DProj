@@ -187,30 +187,32 @@
         <div class="content has-text-justified">
           <img class="thumbnail" src="./static/images/Teaser.png" style="width:100%; margin-bottom:20px">
           <p>
-            Text-to-3D generation, which aims to synthesize vivid 3D objects from text prompts, has attracted much attention from the computer vision community. While several existing works have achieved impressive results for this task, they mainly rely on a time-consuming optimization paradigm. Specifically, these methods optimize a neural field from scratch for each text prompt, taking approximately one hour or more to generate one object. This heavy and repetitive training cost impedes their practical deployment. In this paper, we propose a novel framework for fast text-to-3D generation, dubbed Instant3D. Once trained, Instant3D
-is able to create a 3D object for an unseen text prompt in
-less than one second with a single run of a feedforward net-
-work. We achieve this remarkable speed by devising a new
-network that directly constructs a 3D triplane from a text
-prompt. The core innovation of our Instant3D lies in our
-exploration of strategies to effectively inject text conditions
-into the network. In particular, we propose to combine three
-key mechanisms: cross-attention, style injection, and token-
-to-plane transformation, which collectively ensure precise
-alignment of the output with the input text. Furthermore,
-we propose a simple yet effective activation function, the
-scaled-sigmoid, to replace the original sigmoid function,
-which speeds up the training convergence by more than
-ten times. Finally, to address the Janus (multi-head) prob-
-lem in 3D generation, we propose an adaptive Perp-Neg
-algorithm that can dynamically adjust its concept negation
-scales according to the severity of the Janus problem during
-training, effectively reducing the multi-head effect. Exten-
-sive experiments on a wide variety of benchmark datasets
-demonstrate that the proposed algorithm performs favor-
-ably against the state-of-the-art methods both qualitatively
-and quantitatively, while achieving significantly better effi-
-ciency.
+                Text-to-3D generation, which aims to synthesize vivid
+                3D objects from text prompts, has attracted much attention
+                from the computer vision community. While several existing
+                works have achieved impressive results for this task, they
+                mainly rely on a time-consuming optimization paradigm.
+                Specifically, these methods optimize a neural field from
+                scratch for each text prompt, taking approximately one hour
+                or more to generate one object. This heavy and repetitive training cost impedes their practical deployment. In
+                this paper, we propose a novel framework for fast text-to-3D generation, dubbed Instant3D. Once trained, Instant3D
+                is able to create a 3D object for an unseen text prompt in
+                less than one second with a single run of a feedforward network. We achieve this remarkable speed by devising a new
+                network that directly constructs a 3D triplane from a text
+                prompt. The core innovation of our Instant3D lies in our
+                exploration of strategies to effectively inject text conditions
+                into the network. In particular, we propose to combine three
+                key mechanisms: cross-attention, style injection, and token-to-plane transformation, which collectively ensure precise
+                alignment of the output with the input text. Furthermore,
+                we propose a simple yet effective activation function, the
+                scaled-sigmoid, to replace the original sigmoid function,
+                which speeds up the training convergence by more than
+                ten times. Finally, to address the Janus (multi-head) problem in 3D generation, we propose an adaptive Perp-Neg
+                algorithm that can dynamically adjust its concept negation
+                scales according to the severity of the Janus problem during
+                training, effectively reducing the multi-head effect. Extensive experiments on a wide variety of benchmark datasets
+                demonstrate that the proposed algorithm performs favorably against the state-of-the-art methods both qualitatively
+                and quantitatively, while achieving significantly better efficiency.
           </p>
         </div>
       </div>
