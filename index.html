@@ -222,17 +222,19 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Motivations</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce HOSNeRF, a novel 360° free-viewpoint rendering method that reconstructs neural radiance fields for dynamic human-object-scene from a single monocular in-the-wild video. Our method enables pausing the video at any frame and rendering all scene details (dynamic humans, objects, and backgrounds) from arbitrary viewpoints.
+                Comparison of existing SOTA methods with our
+                proposal. Existing methods optimize a randomly initialized NeRF from scratch for each text prompt, which usually requires more than 10,000 iterations, taking hours to
+                converge. In contrast, our approach is designed to learn
+                a text-conditioned NeRF, which takes much less training
+                computational cost and has strong generalization ability on
+                new prompts. It is able to generate a conditional 3D representation (triplane) of a 3D object for an unseen text prompt
+                in one single pass of a feedforward network, taking about
+                25ms.          
           </p>
-          <p>
-            The first challenge in this task is the complex object motions in human-object interactions, which we tackle by introducing the new object bones into the conventional human skeleton hierarchy to effectively estimate large object deformations in our dynamic human-object model. The second challenge is that humans interact with different objects at different times, for which we introduce two new learnable object state embeddings that can be used as conditions for learning our human-object representation and scene representation, respectively.
-          </p>
-          <p>
-            Extensive experiments show that HOSNeRF significantly outperforms SOTA approaches on two challenging datasets by a large margin of 40% ∼ 50% in terms of LPIPS. Compelling examples of 360° free-viewpoint renderings from single videos are provided in the following video.
-          </p>
+
         </div>
       </div>
     </div>
