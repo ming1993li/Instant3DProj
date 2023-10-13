@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="">
+  <meta name="keywords" content="Image-to-3D generation, Diffusion models, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HiFi-123</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">HiFi-123: Towards High-fidelity One Image to 3D Content Generation</h1>
+          <div class="column is-full_width">
+            <h2 class="title is-4">Arxiv 2023</h2>
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://doubiiu.github.io/">Jinbo Xing</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://menghanxia.github.io/">Menghan Xia</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://julianjuaner.github.io/">Yuechen Zhang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://vinthony.github.io/academic/">Xiaodong Cun</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://juewang725.github.io/">Jue Wang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cse.cuhk.edu.hk/~ttwong/myself.html">Tien-Tsin Wong</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong,</span>
+            <span class="author-block"><sup>2</sup>Tencent AI Lab</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.06744"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link.
+              <span class="link-block">
+                <a href="#teaser"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AILab-CVC/HiFi-123"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link.
+              <span class="link-block">
+                <a href="https://colab.research.google.com/github/Doubiiu/CodeTalker/blob/main/demo.ipynb"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span> -->
+                  <!-- <span>Online demo</span>
+                  </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay loop controls playsinline height="100%">
+        <source src="./static/videos/demo_video_arxiv.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <strong>CodeTalker</strong> can synthesize vivid 3D facial animations (mesh sequences) given audio snippets.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in text-to-image diffusion models have enabled 3D generation from a single image. However, current image-to-3D methods often produce suboptimal results for novel views, with blurred textures and deviations from the reference image, limiting their practical applications. In this paper, we introduce HiFi-123, a method designed for high-fidelity and multi-view consistent 3D generation. Our contributions are twofold: First, we propose a reference-guided novel view enhancement technique that substantially reduces the quality gap between synthesized and reference views. Second, capitalizing on the novel view enhancement, we present a novel reference-guided state distillation loss. When incorporated into the optimization-based image-to-3D pipeline, our method significantly improves 3D generation quality, achieving state-of-the-art performance. Comprehensive evaluations demonstrate the effectiveness of our approach over existing methods, both qualitatively and quantitatively.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+<!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+        <!-- NVE pipe. -->
+        <h3 class="title is-4">Reference-guided Novel View Enhancement Pipeline</h3>
+        <div class="content has-text-justified">
+          <p>
+            Our enhancement pipeline performs DDIM inversion and sampling on both the reference image and coarse novel view, and utilizes attention injection to transfer detail textures from the reference image to the coarse novel view.
+          </p>
+        </div>
+          <div class="content has-text-centered">
+            <img src="./static/images/pipeline_new.png"
+                style="width: 85%"/>
+          </div>
+        <br/>
+        <!--/ NVE pipeline. -->
+
+        <!-- 123. -->
+        <h3 class="title is-4">Image-to-3D generation</h3>
+        <div class="content has-text-justified">
+          <p>
+            We utilize two stages to generate high-fidelity 3D contents. In the coarse stage, we optimize an Instant-NGP representation using SDS loss, reference view reconstruction loss and depth loss. In the refine stage, we export DMTet representation and use our proposed enhancement pipeline to supervise training.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/pipeline3d.png"
+              style="width: 100%"/>
+        </div>
+        <!--/ 123. -->
+
+      </div>
+    </div>
+  </div>
+</section>  
+<!--/ Method. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison</h2>
+
+        <!-- <div class="content has-text-justified">
+          <p>
+            Visual comparisons of sampled facial motions animated by different methods on
+            VOCA (left) and BIWI (right) dataset. The upper partition shows the facial 
+            animation conditioned on different speech parts, while the lower depicts the 
+            temporal statistics (mean and standard deviation) of adjacent-frame motion variations within a sequence.
+          </p>
+        </div> -->
+
+        <div class="video">
+          <!--    <div class="l-page video">-->
+          <video controls="" loop="" width="100%">
+              <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+              <source src="./static/videos/comp_as.mp4" type="video/mp4">
+          </video>
+          <video controls="" loop="" width="100%">
+              <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+              <source src="./static/videos/comp_bee.mp4" type="video/mp4">
+          </video>
+          <video controls="" loop="" width="100%">
+              <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+              <source src="./static/videos/comp_moto.mp4" type="video/mp4">
+          </video>
+          <video controls="" loop="" width="100%">
+              <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+              <source src="./static/videos/comp_lionfish.mp4" type="video/mp4">
+          </video>
+          <video controls="" loop="" width="100%">
+            <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+            <source src="./static/videos/comp_flam.mp4" type="video/mp4">
+        </video>
+        <video controls="" loop="" width="100%">
+          <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+          <source src="./static/videos/comp_dog.mp4" type="video/mp4">
+      </video>
+      <video controls="" loop="" width="100%">
+        <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+        <source src="./static/videos/comp_flower.mp4" type="video/mp4">
+    </video>
+  <video controls="" loop="" width="100%">
+    <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+    <source src="./static/videos/comp_lion.mp4" type="video/mp4">
+</video>
+<video controls="" loop="" width="100%">
+  <!-- t=0.001 is a hack to make iPhone show video thumbnail -->
+  <source src="./static/videos/comp_dtu.mp4" type="video/mp4">
+</video>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>  
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Works</h2>
+
+        <div class="content has-text-justified">
+          <ul>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>   
+-->
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{xing2023codetalker,
+  author    = {Xing, Jinbo and Xia, Menghan and Zhang, Yuechen and Cun, Xiaodong and Wang, Jue and Wong, Tien-Tsin},
+  title     = {CodeTalker: Speech-Driven 3D Facial Animation with Discrete Motion Prior},
+  journal   = {arXiv preprint arXiv:2301.02379},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
