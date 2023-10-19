@@ -155,3 +155,24 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.nerf_slider_v2 h6,
+.captioned_videos h6 {
+    /* font-style: italic; */
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    /* align-items: center; */
+    text-align: center;
+}
+
+/* .captioned_videos { */
+    /* padding-bottom: 20px; */
+    /* margin-top: 16px; */
+/* } */
+
+.captioned_videos h6 {
+    max-width: 768px;
+    padding-top: 6px;
+}
