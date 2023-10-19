@@ -176,3 +176,24 @@ body {
     max-width: 768px;
     padding-top: 6px;
 }
+
+/* From Ref-NeRF */
+.video-compare-container {
+    width: 63%;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+    line-height: 0;
+  }
+.compositional .video-compare-container {
+    width: 100%;
+    max-width: 256px;
+    margin-right: auto;
+    margin-left: auto;
+    transition: opacity 0.75s ease-in;
+}
+@media screen and (max-width: 575px) {
+    .video-compare-container {
+        padding-top: 32px;
+    }
+}
