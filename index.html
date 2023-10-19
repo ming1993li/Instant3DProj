@@ -270,38 +270,50 @@
     
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Our Generated Objects by One-Pass Feedforward Testing</h2>
-        <div class="publication-video">
-          <iframe src="./static/videos/animals1.mp4" style="width:70%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          <iframe src="./static/videos/animals1.mp4" style="width:70%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <hr class="divider" />
+    <div class="container" style="max-width: 768px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Example generated objects</h2>
+                <p>MVDream generates objects and scenes in a multi-view consistent way.</p>
+            </div>
         </div>
-        <div class="publication-video">
-          <iframe src="./static/videos/animals2.mp4" style="width:100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+        <div class="row captioned_videos">
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex1" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source data-src="./static/videos/a black man wearing a peaked cap is laughing.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex1Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption">a black man wearing a peaked cap is laughing</h6>
+            </div>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex2" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source data-src="./static/videos/a boy wearing a peaked cap is angry.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex2Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption">a boy wearing a peaked cap is angry</h6>
+            </div>
 
-        <div class="publication-video">
-          <iframe src="./static/videos/portraits1.mp4" style="width:100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <div class="col-4">
+                <div class="video-compare-container" style="width: 100%">
+                    <video class="video lazy" id="ex3" loop playsinline autoplay muted onplay="resizeAndPlay(this)" style="height: 0px;">
+                        <source data-src="./static/videos/a dog wearing a tie  and wearing a party hat.mp4" type="video/mp4"></source>
+                    </video>
+                    <canvas height="752" class="videoMerge" id="ex3Merge" width="1002"></canvas>
+                </div>
+                <h6 class="caption">a dog wearing a tie  and wearing a party hat</h6>
+            </div>
         </div>
-        <div class="publication-video">
-          <iframe src="./static/videos/portraits2.mp4" style="width:100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
-
-        <div class="publication-video">
-          <iframe src="./static/videos/daily_life1.mp4" style="width:100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="publication-video">
-          <iframe src="./static/videos/daily_life2.mp4" style="width:100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        
-      </div>
     </div>
     
     <!--/ Paper video. -->
   </div>
 </section>
-
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
